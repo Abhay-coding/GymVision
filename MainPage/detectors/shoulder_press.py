@@ -1,4 +1,4 @@
-from core.base_exercise import BaseExercise
+from major_project.GymVision.MainPage.core.base_exercise import BaseExercise
 
 
 class ShoulderPressDetector(BaseExercise):
