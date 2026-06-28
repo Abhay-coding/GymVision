@@ -198,7 +198,7 @@ class VideoProcessorClass(VideoProcessorBase):
 
         mp_image = mp.Image(
             image_format=mp.ImageFormat.SRGB,
-            data=cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+            data=cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         )
 
         self._frame_timestamps_ms += 30
