@@ -1,7 +1,9 @@
 [phases.setup]
 nixPkgs = [
   "libGL",
-  "libglib",
+  "glib",
   "libxcb",
-  "ffmpeg"
+  "libX11",
+  "libXext",
+  "libXrender"
 ]
