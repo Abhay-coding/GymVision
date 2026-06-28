@@ -2,19 +2,19 @@ import streamlit as st
 import os
 import time
 import pandas as pd
-from major_project.GymVision.MainPage.services.auth.login_wall import render_login_wall
-from major_project.GymVision.MainPage.services.state.session_defaults import initial_session_defaults
-from major_project.GymVision.MainPage.services.config.workout_config import EXERCISE_OPTIONS
-from major_project.GymVision.MainPage.services.ui.style_loader import load_css, inject_local_font, inject_webrtc_styles
-from major_project.GymVision.MainPage.services.persistence.exercise_repository import init_db
+from services.auth.login_wall import render_login_wall
+from services.state.session_defaults import initial_session_defaults
+from services.config.workout_config import EXERCISE_OPTIONS
+from services.ui.style_loader import load_css, inject_local_font, inject_webrtc_styles
+from services.persistence.exercise_repository import init_db
 from streamlit_webrtc import webrtc_streamer, WebRtcMode
-from major_project.GymVision.MainPage.services.vision.exercise_video_processor import VideoProcessorClass
-from major_project.GymVision.MainPage.services.tracking.metrics import sync_metrics_update
-from major_project.GymVision.MainPage.services.persistence.exercise_repository import get_users_exercises
+from services.vision.exercise_video_processor import VideoProcessorClass
+from services.tracking.metrics import sync_metrics_update
+from services.persistence.exercise_repository import get_users_exercises
 from groq import Groq
-from major_project.GymVision.MainPage.services.coaching.llm import LLMCoach
-from major_project.GymVision.MainPage.services.coaching.tts import TextToSpeech
-from major_project.GymVision.MainPage.services.coaching.voice_pipeline import VoicePipeline, autoplay_audio
+from services.coaching.llm import LLMCoach
+from services.coaching.tts import TextToSpeech
+from services.coaching.voice_pipeline import VoicePipeline, autoplay_audio
 from dotenv import load_dotenv
 
 
