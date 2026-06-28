@@ -203,7 +203,7 @@ def main():
     else:
         context = webrtc_streamer(
             key="exercise-analysis",
-            mode=WebRtcMode.SENDRECV,
+            mode=WebRtcMode.SENDONLY,
             video_processor_factory=VideoProcessorClass,
             rtc_configuration={
                 "iceServers": [
@@ -227,14 +227,14 @@ def main():
                 "video": True,
                 "audio": False
             },
-            async_processing=True
+            async_processing=False
         )
 
         sync_metrics_update(context)
 
-        if context.state.playing:
-            time.sleep(0.25)
-            st.rerun()
+        # if context.state.playing:
+        #     time.sleep(0.25)
+        #     st.rerun()
 
         inject_webrtc_styles()
 

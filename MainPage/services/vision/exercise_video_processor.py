@@ -202,7 +202,14 @@ class VideoProcessorClass(VideoProcessorBase):
         )
 
         self._frame_timestamps_ms += 30
-        result = self._landmarker.detect_for_video(mp_image, self._frame_timestamps_ms)
+        try:
+            result = self._landmarker.detect_for_video(
+            mp_image,
+            self._frame_timestamps_ms
+        )
+        except Exception as e:
+            print("MEDIAPIPE ERROR:", e)
+            return av.VideoFrame.from_ndarray(image, format="bgr24")
 
         if result.pose_landmarks:
             landmarks = result.pose_landmarks[0]
