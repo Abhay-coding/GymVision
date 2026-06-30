@@ -211,28 +211,10 @@ def main():
             rtc_configuration = {
                 "iceServers": [
                     {
-                        "urls": ["stun:stun.relay.metered.ca:80"]
-                    },
-                    {
-                        "urls": ["turn:global.relay.metered.ca:80"],
-                        "username": os.getenv("TURN_USERNAME"),
-                        "credential": os.getenv("TURN_PASSWORD"),
-                    },
-                    {
-                        "urls": ["turn:global.relay.metered.ca:80?transport=tcp"],
-                        "username": os.getenv("TURN_USERNAME"),
-                        "credential": os.getenv("TURN_PASSWORD"),
-                    },
-                    {
-                        "urls": ["turn:global.relay.metered.ca:443"],
-                        "username": os.getenv("TURN_USERNAME"),
-                        "credential": os.getenv("TURN_PASSWORD"),
-                    },
-                    {
-                        "urls": ["turns:global.relay.metered.ca:443?transport=tcp"],
-                        "username": os.getenv("TURN_USERNAME"),
-                        "credential": os.getenv("TURN_PASSWORD"),
-                    },
+                        "urls": [
+                            "stun:openrelay.metered.ca:80"
+                        ]
+                    }
                 ]
             },
             media_stream_constraints={
