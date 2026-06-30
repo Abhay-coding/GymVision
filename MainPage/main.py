@@ -216,8 +216,9 @@ def main():
                 "video": True,
                 "audio": False
             },
-            async_processing=False
+            async_processing=True
         )
+        st.write(context.state.playing)
 
         sync_metrics_update(context)
 
