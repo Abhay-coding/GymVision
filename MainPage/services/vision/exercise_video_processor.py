@@ -191,10 +191,12 @@ class VideoProcessorClass(VideoProcessorBase):
         )
 
     def recv(self, frame):
-        image = np.asarray(
-            cv2.flip(frame.to_ndarray(format="bgr24"), 1),
-            dtype=np.uint8
-        )
+        print("FRAME RECEIVED")
+        return frame
+        # image = np.asarray(
+        #     cv2.flip(frame.to_ndarray(format="bgr24"), 1),
+        #     dtype=np.uint8
+        # )
 
         mp_image = mp.Image(
             image_format=mp.ImageFormat.SRGB,

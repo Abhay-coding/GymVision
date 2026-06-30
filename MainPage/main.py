@@ -201,8 +201,8 @@ def main():
             unsafe_allow_html=True,
         )
     else:
-        st.write("TURN_USERNAME:", repr(os.getenv("TURN_USERNAME")))
-        st.write("TURN_PASSWORD:", repr(os.getenv("TURN_PASSWORD")))
+        # st.write("TURN_USERNAME:", repr(os.getenv("TURN_USERNAME")))
+        # st.write("TURN_PASSWORD:", repr(os.getenv("TURN_PASSWORD")))
         st.write("DOTENV:", os.path.exists(".env"))
         context = webrtc_streamer(
             key="exercise-analysis",
@@ -217,13 +217,19 @@ def main():
                     }
                 ]
             },
+            
             media_stream_constraints={
                 "video": True,
                 "audio": False
             },
             async_processing=True
         )
+        st.write("Playing:", context.state.playing)
+        st.write("Signalling:", context.state.signalling)
         st.write(context.state.playing)
+        st.write(context)
+        st.write(context.state)
+        st.write("Playing:", context.state.playing)
 
         sync_metrics_update(context)
 
