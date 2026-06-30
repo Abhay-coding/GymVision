@@ -201,6 +201,9 @@ def main():
             unsafe_allow_html=True,
         )
     else:
+        st.write("TURN_USERNAME:", repr(os.getenv("TURN_USERNAME")))
+        st.write("TURN_PASSWORD:", repr(os.getenv("TURN_PASSWORD")))
+        st.write("DOTENV:", os.path.exists(".env"))
         context = webrtc_streamer(
             key="exercise-analysis",
             mode=WebRtcMode.SENDRECV,
@@ -208,25 +211,25 @@ def main():
             rtc_configuration = {
                 "iceServers": [
                     {
-                        "urls": "stun:stun.relay.metered.ca:80"
+                        "urls": ["stun:stun.relay.metered.ca:80"]
                     },
                     {
-                        "urls": "turn:global.relay.metered.ca:80",
+                        "urls": ["turn:global.relay.metered.ca:80"],
                         "username": os.getenv("TURN_USERNAME"),
                         "credential": os.getenv("TURN_PASSWORD"),
                     },
                     {
-                        "urls": "turn:global.relay.metered.ca:80?transport=tcp",
+                        "urls": ["turn:global.relay.metered.ca:80?transport=tcp"],
                         "username": os.getenv("TURN_USERNAME"),
                         "credential": os.getenv("TURN_PASSWORD"),
                     },
                     {
-                        "urls": "turn:global.relay.metered.ca:443",
+                        "urls": ["turn:global.relay.metered.ca:443"],
                         "username": os.getenv("TURN_USERNAME"),
                         "credential": os.getenv("TURN_PASSWORD"),
                     },
                     {
-                        "urls": "turns:global.relay.metered.ca:443?transport=tcp",
+                        "urls": ["turns:global.relay.metered.ca:443?transport=tcp"],
                         "username": os.getenv("TURN_USERNAME"),
                         "credential": os.getenv("TURN_PASSWORD"),
                     },
