@@ -212,9 +212,19 @@ def main():
                 "iceServers": [
                     {
                         "urls": [
-                            "stun:openrelay.metered.ca:80"
+                            "stun:global.relay.metered.ca:80"
                         ]
-                    }
+                    },
+                    {
+                        "urls": [
+                            "turn:global.relay.metered.ca:80",
+                            "turn:global.relay.metered.ca:80?transport=tcp",
+                            "turn:global.relay.metered.ca:443",
+                            "turns:global.relay.metered.ca:443?transport=tcp"
+                        ],
+                        "username": os.getenv("TURN_USERNAME"),
+                        "credential": os.getenv("TURN_PASSWORD"),
+                    },
                 ]
             },
             
